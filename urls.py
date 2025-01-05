@@ -1,29 +1,15 @@
-"""
-URL configuration for middleware_project project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path, include
-# from api import urls as api_urls
-# from graphene_django.views import GraphQLView
+from django.urls import path
+from . import views
+# from .views import SendMessageView
+# from .schema import schema
 
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),  # Include the API app URLs
-    # path('graphql/', GraphQLView.as_view(graphiql=True)), 
+    path('upload_schema/', views.upload_schema, name='upload_schema'),
+    path('schemas/', views.get_schemas, name='schemas'),
+    path('mappings/', views.get_mappings, name='mappings'),
+    path('push_to_erp/', views.push_data_to_erp, name='push_to_erp'),
+    path('upload/', views.upload_xml, name='upload_xml'),
+    
 ]
-
