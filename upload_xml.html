@@ -1,0 +1,9 @@
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="xml_file">Upload XML File</label>
+    <input type="file" name="xml_file" id="xml_file" required>
+    <button type="submit">Upload</button>
+</form>
